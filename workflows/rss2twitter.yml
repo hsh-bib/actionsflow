@@ -10,8 +10,8 @@ jobs:
       - name: Post a tweet
         uses: ethomson/send-tweet-action@v1
         with:
-          status: "Frisch auf SerWisS: " ${{ on.rss.outputs.title }} ${{ on.rss.outputs.link }}
-          consumer-key: ${{ TWITTER_CONSUMER_KEY }}
-          consumer-secret: ${{ TWITTER_CONSUMER_SECRET }}
-          access-token: ${{ TWITTER_ACCESS_TOKEN }}
-          access-token-secret: ${{ TWITTER_ACCESS_SECRET }}
+          status: ${{ on.rss.outputs.title }}
+          consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          access-token-secret: ${{ secrets.TWITTER_ACCESS_SECRET }}
