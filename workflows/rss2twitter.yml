@@ -1,0 +1,17 @@
+name: Tweete neue SerWisS-Dokumente
+on:
+  rss:
+    url: https://serwiss.bib.hs-hannover.de/rss
+jobs:
+  twitter:
+    name: Post a tweet
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post a tweet
+        uses: ethomson/send-tweet-action@v1
+        with:
+          status: ${{ on.rss.outputs.title }}
+          consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          access-token-secret: ${{ secrets.TWITTER_ACCESS_SECRET }}
